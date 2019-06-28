@@ -1,10 +1,10 @@
 {
   "name": "mem",
   "connector": "mongodb",
-  "url": "TOFILL",
-  "host": "TOFILL",
+  "url": "mongodb+srv://codroidswebuser:4yakR3ZUbcfJZOr0@clusterus1-zzsls.mongodb.net/test?retryWrites=true",
+  "host": "clusterus1-zzsls.mongodb.net",
   "port": 27017,
-  "user": "TOFILL",
-  "password": "TOFILL",
+  "user": "codroidswebuser",
+  "password": "4yakR3ZUbcfJZOr0",
   "database": "test"
 }

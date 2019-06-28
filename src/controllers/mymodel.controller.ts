@@ -19,6 +19,7 @@ import {
 import {Mymodel} from '../models';
 import {MymodelRepository} from '../repositories';
 
+
 export class MymodelController {
   constructor(
     @repository(MymodelRepository)
@@ -136,28 +137,39 @@ export class MymodelController {
   }
 
 
-  @get('/mymodels/test', {
-    responses: {
-    '200': {
-      description: 'Array of Mymodel model instances',
-      content: {
-        'application/json': {
-          schema: {type: 'array', items: {'x-ts-type': Mymodel}},
-        },
-      },
-    },
-  },
-})
+  @get('/mymodels/test')
 async test(
   
 ): Promise<void> {
-  let obj={name:"title"}
-  let p:Mymodel=await  this.mymodelRepository.create(obj)
+  const obj={name:"title"}
+  const p:Mymodel=await  this.mymodelRepository.create(obj)
   console.log("Saved entity",p)
 
   p.name="modified title"
   await this.mymodelRepository.update(p)
   console.log("Modified entity",p)
   return 
+}
+
+
+
+
+
+//patching via route without required fields : works
+//compared to 
+//patching via REST without required fields : fails
+@get('/mymodels/test2')
+async test2(): Promise<void> {
+  const p=await this.mymodelRepository.findById("5d166cd48639173cc89a1780")
+  if(!p || !p.id) return
+  const pid:string=p.id
+
+  let patch={
+    property:"patched2"
+  }
+  await this.mymodelRepository.updateById(pid,patch)
+  console.log("Modified entity",p)
+  return 
+
 }
 }

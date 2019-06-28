@@ -1,0 +1,10 @@
+{
+  "name": "mem",
+  "connector": "mongodb",
+  "url": "TOFILL",
+  "host": "TOFILL",
+  "port": 27017,
+  "user": "TOFILL",
+  "password": "TOFILL",
+  "database": "test"
+}

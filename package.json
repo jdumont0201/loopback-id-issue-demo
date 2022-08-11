@@ -51,7 +51,7 @@
     "@loopback/rest-explorer": "^1.2.3",
     "@loopback/service-proxy": "^1.2.3",
     "loopback-connector-mongodb": "^5.0.0",
-    "loopback-connector-postgresql": "^3.7.0",
+    "loopback-connector-postgresql": "^5.5.1",
     "node-waf": "^1.0.0"
   },
   "devDependencies": {
